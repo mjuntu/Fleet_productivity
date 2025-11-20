@@ -286,12 +286,12 @@ end
 writetable(allGrandSummary, fullfile(outputFolder, 'Grand_Totals_All_Scanners_JanOct2025.xlsx'));
 writetable(capacitySummary, fullfile(outputFolder, 'Capacity_Summary_All_Scanners_JanOct2025.xlsx'));
 writetable(dailyCapacity,   fullfile(outputFolder, 'Daily_Productivity_All_Scanners_JanOct2025.xlsx'));
-disp('✅ [Jan–Oct] All summaries saved.');
+disp('[Jan–Oct] All summaries saved.');
 
 %% ---- Stats + Command Window printout (+ % changes by scanner, Jan–Oct) ----
 statsTable = summarizeHourlyStats_JanOct(dailyCapacity, scanners);
 writetable(statsTable, fullfile(outputFolder, 'Hourly_Rate_Stats_ByScanner_JanOct2025.xlsx'));
-disp('✅ [Jan–Oct] Hourly rate stats saved (mean±SD, median with 95% CI).');
+disp('[Jan–Oct] Hourly rate stats saved (mean±SD, median with 95% CI).');
 
 fprintf('\n========== [Jan–Oct] Hourly Rate Summary (with %% changes) ==========\n');
 for s = 1:numel(scanners)
@@ -411,7 +411,7 @@ scannerTable = cell2table(rowsAB, 'VariableNames', ...
 
 outFile_scanners = fullfile(outputFolder, 'Scanner_Optima_Hourly_Productivity_JanOct2025.xlsx');
 writetable(scannerTable, outFile_scanners);
-fprintf('✅ Scanner + Optima hourly productivity table (Jan–Oct) saved to:\n  %s\n\n', outFile_scanners);
+fprintf('Scanner + Optima hourly productivity table (Jan–Oct) saved to:\n  %s\n\n', outFile_scanners);
 
 %% === Fleet-level hourly productivity & EXAM/GAP fractions (Jan–Oct) ===
 
@@ -533,7 +533,7 @@ fleetSummaryTable = table(Period, Ndays, ...
 
 outFile_fleet = fullfile(outputFolder, 'Fleet_Productivity_Exam_Gap_Fractions_JanOct2025.xlsx');
 writetable(fleetSummaryTable, outFile_fleet);
-fprintf('✅ Fleet throughput + EXAM/GAP fraction table (Jan–Oct) saved to:\n  %s\n\n', outFile_fleet);
+fprintf('Fleet throughput + EXAM/GAP fraction table (Jan–Oct) saved to:\n  %s\n\n', outFile_fleet);
 
 %% === Scanner / B0 / G0 / Total summary table (Jan–Oct) ===
 
@@ -795,7 +795,7 @@ scannerModalityTotalTable = cell2table(rowsSummary, 'VariableNames', { ...
 outFile_group = fullfile(outputFolder, 'Scanner_B0_G0_Total_HourlySummary_JanOct2025.xlsx');
 writetable(scannerModalityTotalTable, outFile_group);
 
-fprintf('✅ Scanner/B0/G0/Total summary table (incl. Optimas, B0_Vida 2025-only, Jan–Oct) saved to:\n  %s\n\n', outFile_group);
+fprintf('Scanner/B0/G0/Total summary table (incl. Optimas, B0_Vida 2025-only, Jan–Oct) saved to:\n  %s\n\n', outFile_group);
 
 % ---------- 5) Nicely formatted presentation table (indented years) ----------
 rowsPres = {};
@@ -846,12 +846,12 @@ presentationTable = cell2table(rowsPres, 'VariableNames', ...
 outFile_pres = fullfile(outputFolder, 'Scanner_B0_G0_Total_HourlySummary_Presentation_JanOct2025.xlsx');
 writetable(presentationTable, outFile_pres);
 
-fprintf('✅ Presentation-style hourly summary (Jan–Oct) saved to:\n  %s\n\n', outFile_pres);
+fprintf('Presentation-style hourly summary (Jan–Oct) saved to:\n  %s\n\n', outFile_pres);
 
 %% ---- Plot daily hourly productivity per scanner (Jan–Oct) ----
 plotDailyProductivityAllScanners_JanOct(dailyCapacity, scanners, ...
     fullfile(outputFolder, 'Daily_Productivity_ByScanner_JanOct2025.png'));
-disp('✅ Daily productivity figure (Jan–Oct) saved.');
+disp('Daily productivity figure (Jan–Oct) saved.');
 
 %% ===================== Helper functions =====================
 function s = formatMeanSD(mu, sd)
